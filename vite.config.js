@@ -4,6 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   root: './',
+  base: '/test-fnac/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
