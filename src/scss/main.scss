@@ -1,0 +1,32 @@
+@use './base/variables';
+
+@use './base/settings';
+
+@use './base/mixins';
+
+@use './base/reset';
+
+@use './base/typography';
+
+@use './layout/header';
+@use './layout/nav';
+@use './layout/footer';
+
+@use './components/buttons';
+@use './components/cards';
+@use './components/carrousel';
+
+// @use './pages/home';
+
+body {
+  position: relative;
+  font-family: variables.$font-base;
+  font-size: variables.$font-size-text;
+  color: variables.$color-primary;
+  background-color: variables.$color-body;
+}
+
+.main {
+  @include mixins.container;
+  margin-bottom: variables.$spacing-l;
+}

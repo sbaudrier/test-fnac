@@ -1,0 +1,7 @@
+@use '../base/variables';
+
+.card {
+  padding: variables.$spacing-m;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}

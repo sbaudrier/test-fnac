@@ -1,0 +1,17 @@
+@use 'sass:map';
+@use 'settings';
+
+@mixin breakpoint($name) {
+  $value: map.get(settings.$breakpoints, $name);
+  @if $value == null {
+    @error "Le breakpoint `#{$name}` n'existe pas.";
+  }
+  @media (min-width: $value) {
+    @content;
+  }
+}
+
+@mixin container {
+  width: min(902px, 90%);
+  margin-inline: auto;
+}

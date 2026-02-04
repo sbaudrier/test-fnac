@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Accueil</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <div class="header__title">The Galactic Center</div>
+      </div>
+    </header>
+
+    {{> nav }}
+
+    <main class="main">
+      <section class="content">
+        <div id="carousel-1">{{> carrousel }}</div>
+        <div id="carousel-2">{{> carrousel }}</div>
+      </section>
+    </main>
+
+    <footer class="footer" id="footer">
+      <div class="footer__container">
+        <div class="footer__columns">
+          <div class="footer__column">
+            <h3 class="footer__title">Services</h3>
+            <ul class="footer__list">
+              <li><a class="footer__link" href="#">L'Empire</a></li>
+              <li><a class="footer__link" href="#">Stormtrooper</a></li>
+              <li><a class="footer__link" href="#">Premier Ordre</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__column">
+            <h3 class="footer__title">About</h3>
+            <ul class="footer__list">
+              <li><a class="footer__link" href="#">Anciens Officiers impériaux</a></li>
+              <li><a class="footer__link" href="#">Les journées portes ouvertes</a></li>
+              <li><a class="footer__link" href="#">L'empire recrute</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__column footer__column--about">
+            <h3 class="footer__title">The Galactic center</h3>
+            <p class="footer__text">
+              Plus de 30 ans après la bataille d'Endor, nous avons su consolider nos forces afin de
+              retrouver notre gloire. Les membres de l'Alliance rebelle, devenus la « Résistance »
+              se risque à combattre l'Empire réunis sous la bannière du « Premier Ordre ».
+            </p>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <div class="footer__socials">
+            <a href="#" class="footer__social"
+              ><img
+                class="footer__social-icon"
+                src="https://unpkg.com/simple-icons@16.7.0/icons/facebook.svg"
+                alt="Facebook"
+            /></a>
+            <a href="#" class="footer__social"
+              ><img
+                class="footer__social-icon"
+                src="https://unpkg.com/simple-icons@16.7.0/icons/x.svg"
+                alt="X"
+            /></a>
+            <a href="#" class="footer__social"
+              ><img
+                class="footer__social-icon"
+                src="https://unpkg.com/simple-icons@16.7.0/icons/snapchat.svg"
+                alt="Snapchat"
+            /></a>
+            <a href="#" class="footer__social"
+              ><img
+                class="footer__social-icon"
+                src="https://unpkg.com/simple-icons@16.7.0/icons/instagram.svg"
+                alt="Instagram"
+            /></a>
+          </div>
+
+          <div class="footer__copyright">The Galactic center © 2021</div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+@use '../base/variables';
+
+.btn {
+  padding: variables.$spacing-xs variables.$spacing-s;
+  background: variables.$color-primary;
+  color: variables.$color-light;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+
+  &--outline {
+    background: transparent;
+    border: 2px solid variables.$color-primary;
+    color: variables.$color-primary;
+  }
+}

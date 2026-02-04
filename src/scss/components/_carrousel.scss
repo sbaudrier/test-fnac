@@ -1,0 +1,159 @@
+@use '../base/variables';
+@use '../base/functions';
+@use '../base/mixins';
+
+$category-colors: (
+  star: #63c666,
+  galaxy: #f96b69,
+  blackhole: #f67b27
+);
+
+.carrousel {
+  position: relative;
+
+  &__prev,
+  &__next {
+    position: absolute;
+    z-index: 1;
+    top: 60%;
+    width: functions.rem(40);
+    height: functions.rem(40);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: functions.rem(40);
+    vertical-align: middle;
+    cursor: pointer;
+    border: 0;
+    background-color: variables.$color-dark;
+    border-radius: 50%;
+
+    @include mixins.breakpoint(desktop) {
+      top: 50%;
+      background-color: transparent;
+    }
+
+    &:hover {
+      .carrousel__arrow {
+        transform: translateX(functions.rem(-2));
+      }
+    }
+
+    .carrousel__arrow {
+      position: relative;
+      top: variables.$spacing-xxs;
+      padding: variables.$spacing-xxs;
+      transition: transform 0.3s ease;
+      filter: invert(1);
+
+      @include mixins.breakpoint(desktop) {
+        top: auto;
+        padding: 0;
+        filter: none;
+      }
+    }
+  }
+
+  &__prev {
+    left: functions.rem(-15);
+
+    @include mixins.breakpoint(desktop) {
+      left: functions.rem(-55);
+    }
+  }
+
+  &__next {
+    right: functions.rem(-15);
+
+    @include mixins.breakpoint(desktop) {
+      right: functions.rem(-55);
+    }
+  }
+
+  &__card {
+    margin: variables.$spacing-m 0;
+    border: 1px solid variables.$color-light;
+    background-color: variables.$color-white;
+    box-shadow:
+      -#{variables.$spacing-xs} 0 variables.$spacing-xs -#{variables.$spacing-xs} rgba(9, 9, 9, 0.1),
+      variables.$spacing-xs 0 variables.$spacing-xs -#{variables.$spacing-xs} rgba(9, 9, 9, 0.1);
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+
+    &--section {
+      padding: variables.$spacing-xs 0;
+      color: variables.$color-title-section;
+      font-size: variables.$font-size-title;
+    }
+
+    &--card {
+      height: functions.rem(60);
+      overflow: hidden;
+      padding: 0 functions.rem(10);
+      line-height: 1.1;
+      font-weight: 900;
+      font-size: variables.$font-size-carrousel-title;
+      color: variables.$color-dark;
+    }
+  }
+
+  &__body {
+    padding: 0 variables.$spacing-s;
+    text-align: center;
+  }
+
+  &__category {
+    margin: 0;
+    padding: 0;
+    font-size: variables.$font-size-subtitle;
+
+    @each $name, $color in $category-colors {
+      &--#{$name} {
+        color: $color;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: functions.rem(140);
+    object-fit: cover;
+
+    @include mixins.breakpoint(desktop) {
+      height: functions.rem(270);
+    }
+  }
+
+  &__description {
+    height: functions.rem(150);
+    overflow: hidden;
+    line-height: 1.3;
+  }
+
+  &__button {
+    display: block;
+    width: 100%;
+    padding: variables.$spacing-xs 0;
+    border: 0;
+    border-top: 1px;
+    border-style: solid;
+    border-color: variables.$color-light;
+    background-color: variables.$color-white;
+  }
+}
+
+// Prevent tab accessibility on duplicated item in Swiper loop mode
+.swiper-slide-duplicate .carrousel__card {
+  pointer-events: none;
+  outline: none;
+}
